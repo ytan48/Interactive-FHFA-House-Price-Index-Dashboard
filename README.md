@@ -1,3 +1,6 @@
+# Interactive FHFA House Price Index Dashboard
+- University of Illinois Urbana-Champaign STAT385 Fall 2025 Final Project
+
 ## Author
 
 - Name: Yujian Tan  
