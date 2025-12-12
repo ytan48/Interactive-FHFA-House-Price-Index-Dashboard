@@ -1,0 +1,512 @@
+date,
+hpi_index = index_nsa
+)
+write_csv(msa_hpi_clean, "data/msa_hpi_clean.csv")
+example_state = "IL"
+example_msa = msa_hpi_clean %>%
+filter(state == example_state) %>%
+distinct(msa_name) %>%
+arrange(msa_name) %>%
+slice(2) %>%
+pull(msa_name)
+example_data = msa_hpi_clean %>%
+filter(state == example_state, msa_name == example_msa) %>%
+arrange(date)
+ggplot(example_data, aes(x = date, y = hpi_index)) +
+geom_line() +
+labs(
+title = paste("Example HPI series for", example_msa),
+x = "Date",
+y = "House Price Index (NSA, all-transactions)"
+)
+filter_msa_data = function(data, state_choice, area_type, msa_choice, year_range) {
+df = data %>%
+filter(
+state == state_choice,
+year >= year_range[1],
+year <= year_range[2]
+)
+if (area_type == "Single MSA" && !is.null(msa_choice) && !is.na(msa_choice)) {
+df = df %>%
+filter(msa_name == msa_choice)
+}
+df
+}
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+install.packages("rmarkdown")
+install.packages("rmarkdown")
+shiny::runApp()
+runApp()
+shiny::runApp()
+install.packages("xfun")
+runApp()
+runApp()
+write_csv(msa_hpi_clean, "data/msa_hpi_clean.csv")
+library(tidyverse)
+hpi_raw = read_csv("data/hpi_master.csv")
+msa_hpi_clean = hpi_raw %>%
+filter(
+level == "MSA",
+frequency == "quarterly",
+hpi_flavor == "all-transactions",
+!is.na(index_nsa)
+) %>%
+filter(yr >= 2000) %>%
+mutate(
+state = sub(".*,\\s*([A-Z]{2}).*", "\\1", place_name)
+) %>%
+mutate(
+year = yr,
+quarter = period,
+month_day = case_when(
+quarter == 1 ~ "03-31",
+quarter == 2 ~ "06-30",
+quarter == 3 ~ "09-30",
+quarter == 4 ~ "12-31",
+TRUE ~ "12-31"
+),
+date_char = paste0(year, "-", month_day),
+date = as.Date(date_char)
+) %>%
+transmute(
+msa_id = place_id,
+msa_name = place_name,
+state,
+year,
+quarter,
+date,
+hpi_index = index_nsa
+)
+write_csv(msa_hpi_clean, "data/msa_hpi_clean.csv")
+example_state = "IL"
+example_msa = msa_hpi_clean %>%
+filter(state == example_state) %>%
+distinct(msa_name) %>%
+arrange(msa_name) %>%
+slice(2) %>%
+pull(msa_name)
+example_data = msa_hpi_clean %>%
+filter(state == example_state, msa_name == example_msa) %>%
+arrange(date)
+ggplot(example_data) +
+geom_line(mapping = , aes(x = date, y = hpi_index))
+ggplot(example_data) +
+geom_line(mapping = aes(x = date, y = hpi_index))
+library(tidyverse)
+hpi_raw = read_csv("data/hpi_master.csv")
+msa_hpi_clean = hpi_raw %>%
+filter(
+level == "MSA",
+frequency == "quarterly",
+hpi_flavor == "all-transactions",
+!is.na(index_nsa)
+) %>%
+filter(yr >= 2000) %>%
+mutate(
+state = sub(".*,\\s*([A-Z]{2}).*", "\\1", place_name)
+) %>%
+mutate(
+year = yr,
+quarter = period,
+month_day = case_when(
+quarter == 1 ~ "03-31",
+quarter == 2 ~ "06-30",
+quarter == 3 ~ "09-30",
+quarter == 4 ~ "12-31",
+TRUE ~ "12-31"
+),
+date_char = paste0(year, "-", month_day),
+date = as.Date(date_char)
+) %>%
+transmute(
+msa_id = place_id,
+msa_name = place_name,
+state,
+year,
+quarter,
+date,
+hpi_index = index_nsa
+)
+write_csv(msa_hpi_clean, "data/msa_hpi_clean.csv")
+example_state = "IL"
+example_msa = msa_hpi_clean %>%
+filter(state == example_state) %>%
+distinct(msa_name) %>%
+arrange(msa_name) %>%
+slice(2) %>%
+pull(msa_name)
+example_data = msa_hpi_clean %>%
+filter(state == example_state, msa_name == example_msa) %>%
+arrange(date)
+ggplot(example_data) +
+geom_line(mapping = aes(x = date, y = hpi_index))
+example_msa = msa_hpi_clean %>%
+filter(state == example_state) %>%
+distinct(msa_name) %>%
+arrange(msa_name) %>%
+slice(2) %>%
+pull(msa_name)
+library(tidyverse)
+hpi_raw = read_csv("data/hpi_master.csv")
+msa_hpi_clean = hpi_raw %>%
+filter(
+level == "MSA",
+frequency == "quarterly",
+hpi_flavor == "all-transactions",
+!is.na(index_nsa)
+) %>%
+filter(yr >= 2000) %>%
+mutate(
+state = sub(".*,\\s*([A-Z]{2}).*", "\\1", place_name)
+) %>%
+mutate(
+year = yr,
+quarter = period,
+month_day = case_when(
+quarter == 1 ~ "03-31",
+quarter == 2 ~ "06-30",
+quarter == 3 ~ "09-30",
+quarter == 4 ~ "12-31",
+TRUE ~ "12-31"
+),
+date_char = paste0(year, "-", month_day),
+date = as.Date(date_char)
+) %>%
+transmute(
+msa_id = place_id,
+msa_name = place_name,
+state,
+year,
+quarter,
+date,
+hpi_index = index_nsa
+)
+write_csv(msa_hpi_clean, "data/msa_hpi_clean.csv")
+example_state = "IL"
+example_msa = msa_hpi_clean %>%
+filter(state == example_state) %>%
+distinct(msa_name) %>%
+arrange(msa_name) %>%
+slice(2) %>%
+pull(msa_name)
+example_data = msa_hpi_clean %>%
+filter(state == example_state, msa_name == example_msa) %>%
+arrange(date)
+ggplot(example_data) +
+geom_line(mapping = aes(x = date, y = hpi_index))
+library(tidyverse)
+hpi_raw = read_csv("data/hpi_master.csv")
+msa_hpi_clean = hpi_raw %>%
+filter(
+level == "MSA",
+frequency == "quarterly",
+hpi_flavor == "all-transactions",
+!is.na(index_nsa)
+) %>%
+filter(year >= 2000) %>%
+mutate(
+state = sub(".*,\\s*([A-Z]{2}).*", "\\1", place_name)
+) %>%
+mutate(
+year = yr,
+quarter = period,
+month_day = case_when(
+quarter == 1 ~ "03-31",
+quarter == 2 ~ "06-30",
+quarter == 3 ~ "09-30",
+quarter == 4 ~ "12-31",
+TRUE ~ "12-31"
+),
+date_char = paste0(year, "-", month_day),
+date = as.Date(date_char)
+) %>%
+transmute(
+msa_id = place_id,
+msa_name = place_name,
+state,
+year,
+quarter,
+date,
+hpi_index = index_nsa
+)
+library(tidyverse)
+hpi_raw = read_csv("data/hpi_master.csv")
+msa_hpi_clean = hpi_raw %>%
+filter(
+level == "MSA",
+frequency == "quarterly",
+hpi_flavor == "all-transactions",
+!is.na(index_nsa)
+) %>%
+filter(yr >= 2000) %>%
+mutate(
+state = sub(".*,\\s*([A-Z]{2}).*", "\\1", place_name)
+) %>%
+mutate(
+year = yr,
+quarter = period,
+month_day = case_when(
+quarter == 1 ~ "03-31",
+quarter == 2 ~ "06-30",
+quarter == 3 ~ "09-30",
+quarter == 4 ~ "12-31",
+TRUE ~ "12-31"
+),
+date_char = paste0(year, "-", month_day),
+date = as.Date(date_char)
+) %>%
+transmute(
+msa_id = place_id,
+msa_name = place_name,
+state,
+year,
+quarter,
+date,
+hpi_index = index_nsa
+)
+write_csv(msa_hpi_clean, "data/msa_hpi_clean.csv")
+example_state = "IL"
+example_msa = msa_hpi_clean %>%
+filter(state == example_state) %>%
+distinct(msa_name) %>%
+arrange(msa_name) %>%
+slice(2) %>%
+pull(msa_name)
+example_data = msa_hpi_clean %>%
+filter(state == example_state, msa_name == example_msa) %>%
+arrange(date)
+ggplot(example_data, aes(x = date, y = hpi_index)) +
+geom_line() +
+lables(
+title = paste("Example HPI series for", example_msa),
+x = "Date",
+y = "House Price Index (NSA, all-transactions)"
+)
+library(tidyverse)
+hpi_raw = read_csv("data/hpi_master.csv")
+msa_hpi_clean = hpi_raw %>%
+filter(
+level == "MSA",
+frequency == "quarterly",
+hpi_flavor == "all-transactions",
+!is.na(index_nsa)
+) %>%
+filter(yr >= 2000) %>%
+mutate(
+state = sub(".*,\\s*([A-Z]{2}).*", "\\1", place_name)
+) %>%
+mutate(
+year = yr,
+quarter = period,
+month_day = case_when(
+quarter == 1 ~ "03-31",
+quarter == 2 ~ "06-30",
+quarter == 3 ~ "09-30",
+quarter == 4 ~ "12-31",
+TRUE ~ "12-31"
+),
+date_char = paste0(year, "-", month_day),
+date = as.Date(date_char)
+) %>%
+transmute(
+msa_id = place_id,
+msa_name = place_name,
+state,
+year,
+quarter,
+date,
+hpi_index = index_nsa
+)
+write_csv(msa_hpi_clean, "data/msa_hpi_clean.csv")
+example_state = "IL"
+example_msa = msa_hpi_clean %>%
+filter(state == example_state) %>%
+distinct(msa_name) %>%
+arrange(msa_name) %>%
+slice(2) %>%
+pull(msa_name)
+example_data = msa_hpi_clean %>%
+filter(state == example_state, msa_name == example_msa) %>%
+arrange(date)
+ggplot(example_data, aes(x = date, y = hpi_index)) +
+geom_line() +
+labs(
+title = paste("Example HPI series for", example_msa),
+x = "Date",
+y = "House Price Index (NSA, all-transactions)"
+)
+shiny::runApp()
+runApp()
+example_state = "IL"
+example_msa = msa_hpi_clean %>%
+filter(state == example_state) %>%
+distinct(msa_name) %>%
+arrange(msa_name) %>%
+slice(3) %>%
+pull(msa_name)
+ggplot(example_data, aes(x = date, y = hpi_index)) +
+geom_line() +
+labs(
+title = paste("Example HPI series for", example_msa),
+x = "Date",
+y = "House Price Index (NSA, all-transactions)"
+)
+library(tidyverse)
+hpi_raw = read_csv("data/hpi_master.csv")
+msa_hpi_clean = hpi_raw %>%
+filter(
+level == "MSA",
+frequency == "quarterly",
+hpi_flavor == "all-transactions",
+!is.na(index_nsa)
+) %>%
+filter(yr >= 2000) %>%
+mutate(
+state = sub(".*,\\s*([A-Z]{2}).*", "\\1", place_name)
+) %>%
+mutate(
+year = yr,
+quarter = period,
+month_day = case_when(
+quarter == 1 ~ "03-31",
+quarter == 2 ~ "06-30",
+quarter == 3 ~ "09-30",
+quarter == 4 ~ "12-31",
+TRUE ~ "12-31"
+),
+date_char = paste0(year, "-", month_day),
+date = as.Date(date_char)
+) %>%
+transmute(
+msa_id = place_id,
+msa_name = place_name,
+state,
+year,
+quarter,
+date,
+hpi_index = index_nsa
+)
+write_csv(msa_hpi_clean, "data/msa_hpi_clean.csv")
+example_state = "IL"
+example_msa = msa_hpi_clean %>%
+filter(state == example_state) %>%
+distinct(msa_name) %>%
+arrange(msa_name) %>%
+slice(3) %>%
+pull(msa_name)
+example_data = msa_hpi_clean %>%
+filter(state == example_state, msa_name == example_msa) %>%
+arrange(date)
+ggplot(example_data, aes(x = date, y = hpi_index)) +
+geom_line() +
+labs(
+title = paste("Example HPI series for", example_msa),
+x = "Date",
+y = "House Price Index (NSA, all-transactions)"
+)
+runApp()
+msa_hpi %>%
+filter(state == "IL") %>%
+distinct(msa_name) %>%
+arrange(msa_name)
+library(dplyr)
+filter_msa_data = function(data, state_choice, area_type, msa_choice, year_range) {
+df = data %>%
+filter(
+state == state_choice,
+year >= year_range[1],
+year <= year_range[2]
+)
+df
+}
+library(tidyverse)
+hpi_raw = read_csv("data/hpi_master.csv")
+msa_hpi_clean = hpi_raw %>%
+filter(
+level == "MSA",
+frequency == "quarterly",
+hpi_flavor == "all-transactions",
+!is.na(index_nsa)
+) %>%
+filter(yr >= 2000) %>%
+mutate(
+state = sub(".*,\\s*([A-Z]{2}).*", "\\1", place_name)
+) %>%
+mutate(
+year = yr,
+quarter = period,
+month_day = case_when(
+quarter == 1 ~ "03-31",
+quarter == 2 ~ "06-30",
+quarter == 3 ~ "09-30",
+quarter == 4 ~ "12-31",
+TRUE ~ "12-31"
+),
+date_char = paste0(year, "-", month_day),
+date = as.Date(date_char)
+) %>%
+transmute(
+msa_id = place_id,
+msa_name = place_name,
+state,
+year,
+quarter,
+date,
+hpi_index = index_nsa
+)
+write_csv(msa_hpi_clean, "data/msa_hpi_clean.csv")
+example_state = "IL"
+example_msa = msa_hpi_clean %>%
+filter(state == example_state) %>%
+distinct(msa_name) %>%
+arrange(msa_name) %>%
+slice(2) %>%
+pull(msa_name)
+example_data = msa_hpi_clean %>%
+filter(state == example_state, msa_name == example_msa) %>%
+arrange(date)
+ggplot(example_data, aes(x = date, y = hpi_index)) +
+geom_line() +
+labs(
+title = paste("Example HPI series for", example_msa),
+x = "Date",
+y = "House Price Index (NSA, all-transactions)"
+)
+msa_hpi %>%
+filter(state == "IL") %>%
+distinct(msa_name) %>%
+arrange(msa_name)
+runApp()
+msa_hpi %>%
+filter(state == "IL") %>%
+distinct(msa_name) %>%
+arrange(msa_name)
+msa_hpi = read_csv("data/msa_hpi_clean.csv")
+msa_hpi %>%
+filter(state == "IL") %>%
+distinct(msa_name) %>%
+arrange(msa_name)
+runApp()
+runApp()
+runApp()
+shiny::runApp()
+df
+library(dplyr)
+filter_msa_data = function(data, state_choice, area_type, msa_choice, year_range) {
+df = data %>%
+filter(
+state == state_choice,
+year >= year_range[1],
+year <= year_range[2]
+) if (area_type == "Single MSA") {
+runApp()
+runApp()
+runApp()
+runApp()

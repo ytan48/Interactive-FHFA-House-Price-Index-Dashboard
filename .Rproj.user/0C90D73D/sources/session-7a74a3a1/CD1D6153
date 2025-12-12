@@ -1,0 +1,26 @@
+{
+    "id": "CD1D6153",
+    "path": "D:/Tangent/Documents/STAT385/Final Project-Shiny/FHFA-House-Price/Set up.R",
+    "project_path": "Set up.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1765170202010.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "17,26",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1765174523,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1765174523491,
+    "read_only": false,
+    "read_only_alternatives": []
+}
