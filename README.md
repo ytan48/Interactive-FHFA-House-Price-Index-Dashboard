@@ -3,6 +3,7 @@
 
 
 View the online Application: [Dashboard](https://ytan48.shinyapps.io/Interactive-FHFA-House-Price-Index-Dashboard/)
+<img width="2560" height="925" alt="house price preview" src="https://github.com/user-attachments/assets/7a9a71ad-a7c9-41f4-a866-6f4da163895b" />
 
 ## Author
 
